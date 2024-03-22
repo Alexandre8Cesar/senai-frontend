@@ -1,0 +1,68 @@
+li{
+    color: rgb(255, 255, 255);
+    width: 500px;
+    border: 1px solid black;
+    text-align: center;
+    text-shadow: 3px 3px 1px black;;
+}
+
+
+
+#meu-id {
+    text-shadow: 3px 3px 1px black;;
+    
+    
+}
+
+p{
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 1px black;;
+}
+
+.minha-class {
+    
+}
+
+.fundo-azul {
+    background-color: rgb(48, 52, 255);
+    color: rgb(255, 255, 255);
+}
+
+.fundo-azul:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(48, 52, 255)
+}
+
+html {
+    font-size: 20px;
+    font-family: "Luckiest Guy", cursive;
+    
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 3px 3px 1px black;;
+}
+
+p,
+li {
+  font-size: 25px;
+  line-height: 2;
+  letter-spacing: 1px;
+  padding: 3px;
+  margin: 3px;
+}
+  body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgb(83, 200, 255);
+    padding: 0 10px 20px 40px;
+    border: 0px solid black;
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  
