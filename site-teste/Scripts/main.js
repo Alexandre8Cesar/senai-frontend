@@ -1,6 +1,6 @@
 function mudarH1 () {
 const novaH1 = document.querySelector("H1");
-novaH1.textContent = "Olá Mundo";
+novaH1.textContent = "Seja bem-vindo!";
 }
 
 function verificarsite() {
