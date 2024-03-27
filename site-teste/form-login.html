@@ -5,23 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From Login</title>
+    <link rel="stylesheet" href="Estilos/form-login.css">
 </head>
+
 <body>
- <!-- <form action=""> -->
+ <form action="" onsubmit="return validarlogin()">
  <label for="login">Login:</label><br>
  <input type="text" id="login" required ><br>
  <label for="password">Password:</label><br>
  <input type="password" id="password" required ><br>
- <button>Acessar</button>
- <!-- </form> -->
- <script>
-     document.querySelector("button").addEventListener("click", validarLogin);
-     function validarLogin() {
-         let login = document.querySelector("#login").value;
-         console.log(login);
-         let password = document.querySelector("#password").value;
-         console.log(password);
-     }
- </script>   
+ <button>Acessar</button><span></span>
+ </form>
+ <script src="scripts/form-login.js" ></script>   
 </body>
+
 </html>
