@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return validar()">
+    <label for="">CURSOS:</label>
+    <input type="text" name="CURSOS" value="Front-End"><br>
+
+    <label for="">MATÉRIAS:</label><br>
+    <input type="checkbox" id="cbox-html" id="cbox-html" name="materia" value="html">
+    <label for="cbox-html">HTML</label>
+
+    <input type="checkbox" id="cbox-css" name="materia" value="css">
+    <label for="cbox-css">CSS</label>
+
+    <input type="checkbox" id="cbox-js" name="materia" value="js">
+    <label for="cbox-js">JAVASCRIPT</label>
+    <br>
+    <label for="">Cor</label><br>
+    <input type="color" id="cor" value="#557733">
+    <br>
+    <label for="">Modalidade</label><br>
+    <input type="radio" id="radio-remoto" name="modalidade" value="remoto">
+<label for="radio-remoto">Remoto</label>
+<input type="radio" id="radio-presencial" name="modalidade" value="presencial">
+<label for="radio-presencial">Presencial</label>
+<br>
+<br>
+    <input type="submit" value="Enviar">
+</form>
+<script>
+    function validar() {
+        let materia = verificaCheck (document.getElementsByName("materia"));
+        console.log(materia);
+        
+        let modalidade = verificaCheck (document.getElementsByName("modalidade"));
+        console.log(modalidade);
+
+        let cor = document.querySelector("#cor").value;
+        document.querySelector("body").style = "background-color: "+cor;
+        return false;
+    }
+
+    function verificaCheck(itens) {
+        r = [];
+        for (i of itens) {
+            
+            if(i.checked){
+                r.push(i.value);
+                
+            }
+        }
+        return r;
+    }
+</script>
+</body>
+</html>
