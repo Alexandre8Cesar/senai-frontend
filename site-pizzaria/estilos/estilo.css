@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -32,11 +34,11 @@ html {
     cursor: pointer;
     display: flex;
     align-items: center;
-    
+
 }
 
 .logo img {
-    width: 100%;
+    width: 70px;
     height: 100%;
 }
 
@@ -45,27 +47,96 @@ html {
     font-size: 1.6rem;
 }
 
-.content .list-menu{
-display: flex;
-align-items: center;
-width: 450px;
-justify-content: space-between;
+.content .list-menu {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    justify-content: space-between;
 }
 
 .content .list-menu li a {
     color: white;
     text-transform: uppercase;
     padding-top: 3rem;
-    padding-bottom: 2.4rem;
-    transition: all 200ms ease-in;
-    font-size: 1.3rem;
+    padding-bottom: 2rem;
+    transition: all 100ms ease-in;
+    font-size: 1.8rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    font-weight: 500;
 
 }
 
 .content .list-menu li a:hover {
-background-color: #333333;
-color: #ffc506;
-border-bottom: 4px solid #ffc506 ;
+    background-color: #333333;
+    color: #ffc506;
+    border-bottom: 4px solid #ffc506;
+}
+
+/* Primeira section */
+
+.first-section {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(29, 29, 29, 0.8), rgba(29, 29, 29, 0.8)), url(../imagens/fundopizza.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.first-section h1 {
+    color: #ffc506;
+    font-size: 6rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.first-section h2 {
+    color: rgb(177, 177, 177);
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.first-section .conteudo-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn button {
+    width: 230px;
+    height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ffc506;
+    border-radius: 10px;
+    color: black;
+    font-weight: 700;
+    margin-top: 5rem;
+    transition: all 200ms ease-in;
+}
+
+.btn button:hover{
+    background-color: transparent;
+    border: 1px solid #ffc506;
+    color: #ffc506;
+}
+
+.btn{
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
 }
