@@ -142,3 +142,82 @@ html {
 }
 
 /* Sobre Nós */
+
+.img-cozinha img{
+    width: 400px;
+    height: 400px;
+    border: 2px solid rgb(177, 177, 177);
+    margin-top: 10rem;
+    margin-left: 10rem;
+}
+
+.sobre-nos{
+    background-color: #1f1e1f;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentsobre p{
+    width: 600px;
+    font-size: 1.8rem;
+    text-align: justify;
+}
+
+.contentsobre h2{
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    font-family: 'Indie Flower', cursive;
+}
+
+.contentsobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardapio{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(12,12,12,0.8),rgba(15,15,15,0.8)), url(../imagens/cozinha.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.cardapio h2{
+    font-size: 5rem;
+    color: #e6e6e6;
+    text-transform: uppercase;
+}
+
+.itens-cardapio{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 550px));
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.itens-cardapio img{
+    width: 100%;
+    height: 300px;
+}
+
+.itens-cardapio div{
+    background-color: #5e5252;
+    box-shadow: 0px 0px 4px 1px;
+}
