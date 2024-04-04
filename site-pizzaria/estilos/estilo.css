@@ -185,6 +185,8 @@ html {
     justify-content: center;
 }
 
+/* Cardapio */
+
 .cardapio{
     width: 100%;
     display: flex;
@@ -201,6 +203,7 @@ html {
     font-size: 5rem;
     color: #e6e6e6;
     text-transform: uppercase;
+    margin-top: 2rem;
 }
 
 .itens-cardapio{
@@ -210,6 +213,8 @@ html {
     justify-content: center;
     align-items: center;
     gap: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .itens-cardapio img{
@@ -220,4 +225,58 @@ html {
 .itens-cardapio div{
     background-color: #5e5252;
     box-shadow: 0px 0px 4px 1px;
+}
+
+.itens-cardapio .info{
+    background-color: rgb(221, 221, 221);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    flex-direction: column;
+}
+
+.itens-cardapio .info h3{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.itens-cardapio .info h4{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 150px 150px;
+    margin-left: 6rem;
+}
+
+.itens-cardapio .info h4 span{
+    color: #5e5252;
+    margin-left: 1.5rem;
+    text-decoration: underline;
+    font-weight: 800;
+} 
+
+.itens-cardapio .info button{
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ffc506;
+    border-radius: 5px;
+    color: black;
+    font-weight: 700;
+    margin-top: 0.5rem;
+   
+}
+
+.itens-cardapio .info button:hover{
+    background-color: #5e5252;
+    color: #ffffff;
+    transition: all 100ms ease-in;
 }
