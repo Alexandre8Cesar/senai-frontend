@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <div class="container-md mt-3">
-    <h2>Fomrulário Cadastro</h2>
+    <h2>Formulário de Cadastro</h2>
     <div class="row">
         <div class="mb-3 col-12">
             <label for="nome">Nome:</label>
@@ -20,7 +20,7 @@
             <input type="email" class="form-control" id="email" placeholder="Digite seu email" name="email">
         </div>
         <div class="mb-3 col-xl-3 col-lg-4 col-md-6">
-            <label for="email">Sexo:</label>
+            <label for="sexo">Sexo:</label>
             <div>
                 <input type="radio" class="form-check-input" id="masculino" name="sexo" value="Masculino">
                 <label class="form-check-label" for="masculino">Masculino</label>
@@ -31,20 +31,22 @@
             </div>
         </div>
         <div class="mb-3 col-lg-4 col-md-6">
-            <label for="email">Data de Nascimento:</label>
+            <label for="dtNascimento">Data de Nascimento:</label>
             <input type="date" class="form-control" id="dtNascimento" name="dtNascimento">
         </div>
         <div class="mb-3 col-lg-4 col-md-6">
-            <label for="email">Escolaridade:</label>
+            <label for="escolaridade">Escolaridade:</label>
             <select class="form-select" id="escolaridade" name="escolaridade">
+                <option>Selecione</option>
                 <option>Fundamental</option>
                 <option>Médio</option>
                 <option>Superior</option>
             </select>
         </div>
         <div class="mb-3 col-lg-4 col-md-6">
-            <label for="email">Estado Civil:</label>
+            <label for="estadoCivil">Estado Civil:</label>
             <select class="form-select" id="estadoCivil" name="estadoCivil">
+                <option>Selecione</option>
                 <option>Solteiro</option>
                 <option>Casado</option>
                 <option>Separado</option>
@@ -59,8 +61,43 @@
             <input type="password" class="form-control" id="confirmar" placeholder="Confirme a senha" name="confirmar">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary float-end">Enviar</button>
+    <button type="submit" class="btn btn-primary float-end" id="enviar">Enviar</button>
 </div>
+<script>
+    document.querySelector("#enviar").addEventListener("click", validarForm);
+
+    function validarForm() {
+        let nome = document.getElementById("nome");
+        if (nome.value == '') {
+            nome.style.border = '1px solid red';
+        } else {
+            nome.style.border = '';
+        }
+
+
+        let email = document.getElementById("email");
+        if (email.value == '') {
+            email.style.border = '1px solid red';
+        } else {
+            email.style.border = '';
+        }
+
+
+        let dtNascimento = document.getElementById("dtNascimento");
+        if (dtNascimento.value == '') {
+            dtNascimento.style.border = '1px solid red';
+        } else {
+            dtNascimento.style.border = '';
+        }
+
+        let estadoCivil = document.getElementById("estadoCivil");
+        if (estadoCivil.value == 'selecione') {
+            estadoCivil.style.border = '1px solid red';
+        } else {
+            estadoCivil.style.border = '';
+        }
+    }
+</script>
 </body>
 
 </html>
