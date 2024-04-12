@@ -21,7 +21,7 @@
         </div>
         <div class="mb-3 col-xl-3 col-lg-4 col-md-6">
             <label for="sexo">Sexo:</label>
-            <div>
+            <div id="sexo">
                 <input type="radio" class="form-check-input" id="masculino" name="sexo" value="Masculino">
                 <label class="form-check-label" for="masculino">Masculino</label>
                 <input type="radio" class="form-check-input" id="feminino" name="sexo" value="Feminino">
@@ -37,7 +37,7 @@
         <div class="mb-3 col-lg-4 col-md-6">
             <label for="escolaridade">Escolaridade:</label>
             <select class="form-select" id="escolaridade" name="escolaridade">
-                <option>Selecione</option>
+                <option value="">Selecione</option>
                 <option>Fundamental</option>
                 <option>Médio</option>
                 <option>Superior</option>
@@ -46,7 +46,7 @@
         <div class="mb-3 col-lg-4 col-md-6">
             <label for="estadoCivil">Estado Civil:</label>
             <select class="form-select" id="estadoCivil" name="estadoCivil">
-                <option>Selecione</option>
+                <option value="">Selecione</option>
                 <option>Solteiro</option>
                 <option>Casado</option>
                 <option>Separado</option>
@@ -67,36 +67,42 @@
     document.querySelector("#enviar").addEventListener("click", validarForm);
 
     function validarForm() {
-        let nome = document.getElementById("nome");
-        if (nome.value == '') {
-            nome.style.border = '1px solid red';
-        } else {
-            nome.style.border = '';
+        validarInput("nome");
+        validarInput("email");
+        validarInput("dtNascimento");
+        validarInput("escolaridade");
+        validarInput("estadoCivil");
+        validarInput("senha");
+        validarInput("confirmar");
+        validarSexo();
+    }
+
+    function validarSexo() {
+        let stSexo = false;
+        let lsSexo = document.getElementsByName("sexo");
+        for (sx of lsSexo) {
+            if (sx.checked){
+                stSexo = true
+            }
         }
 
 
-        let email = document.getElementById("email");
-        if (email.value == '') {
-            email.style.border = '1px solid red';
+        if (!stSexo) {
+            document.getElementById("sexo").style.border = '1px solid red';
         } else {
-            email.style.border = '';
-        }
-
-
-        let dtNascimento = document.getElementById("dtNascimento");
-        if (dtNascimento.value == '') {
-            dtNascimento.style.border = '1px solid red';
-        } else {
-            dtNascimento.style.border = '';
-        }
-
-        let estadoCivil = document.getElementById("estadoCivil");
-        if (estadoCivil.value == 'selecione') {
-            estadoCivil.style.border = '1px solid red';
-        } else {
-            estadoCivil.style.border = '';
+            document.getElementById("sexo").style.border = '';
         }
     }
+
+    function validarInput(idItem) {
+        let item = document.getElementById(idItem);
+        if (item.value == '') {
+            item.style.border = '1px solid red';
+        } else {
+            item.style.border = '';
+        }
+    }
+
 </script>
 </body>
 
