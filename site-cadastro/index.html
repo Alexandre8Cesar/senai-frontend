@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tp-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -81,7 +81,7 @@
         let stSexo = false;
         let lsSexo = document.getElementsByName("sexo");
         for (sx of lsSexo) {
-            if (sx.checked){
+            if (sx.checked) {
                 stSexo = true
             }
         }
@@ -98,10 +98,45 @@
         let item = document.getElementById(idItem);
         if (item.value == '') {
             item.style.border = '1px solid red';
+            erroNoForm = true;
         } else {
             item.style.border = '';
+            pessoa[idItem] = item.value;
         }
     }
+    function validarSenha() {
+        let senha = pessoa.senha;
+        let confirmar = pessoa.confirmar;
+        if (senha.length < 8) {
+            msgErro.innerHTML = "<strong>Atenção:</strong> Senha deve ter 8 ou mais caracteres";
+            erroNoForm = false;
+        }
+        else if (senha == confirmar) {
+            erroNoForm = true;
+            msgErro.style.display = 'none';
+        } else {
+            msgErro.innerHTML = "<strong>Atenção:</strong> Senha e Confirmar Senha Estão Diferentes";
+            erroNoForm = false;
+        }
+    }
+
+    let pessoa = {};
+
+    function mostrarDados() {
+        let txt = `Dados da Pessoa <br>
+        Nome: ${pessoa.nome}<br>
+        E-mail: ${pessoa.email}<br>
+        Sexo: ${pessoa.sexo}<br>
+        Data de Nascimento: ${pessoa.dtNascimento}<br>
+        Escolaridade: ${pessoa.escolaridade}<br>
+        Estado Civil: ${pessoa.estadoCivil}
+        `;
+        txt = txt.replaceAll('<br>', '<br><strong>');
+        txt = txt.replaceAll(':', ':</strong>');
+        document.querySelector("#dados").innerHTML = txt;
+        document.querySelector("#dados").style.display = '';
+    }
+    document.querySelector("#dados").style.display = 'none';
 
 </script>
 </body>
