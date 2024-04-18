@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-12">
             <div class="form-check form-switch float-end">
-                <input class="form-check-input" type="checkbox" id="darkmode" checked>
+                <input class="form-check-input" type="checkbox" id="darkmode" onclick="setdarkmode()" >
                 <label class= "form-check-label" for="darkmode"> Dark Mode</label>
             </div>
         </div>
@@ -167,15 +167,46 @@
     }
     document.querySelector("#dados").style.display = 'none';
 
+    function setdarkmode() {
+
+        isDark = document.getElementById ('darkmode');
+        console.log (isDark.checked)
+
+        if (isDark.checked) {
+            
+        }
+
+        // isDark = document.getElementById('darkmode');
+        
+    }
+  
+//     if (localStorage.getItem('theme') == 'dark') {
+//  setdarkmode();
+//         if (document.getElementsByTagName('checkbox').checked){
+           
+//         }
+//     }
+
+
+//     if (isDark){
+//         setdarkmode.checked = true;
+//         localStorage.setIem('theme' , 'dark');
+//         document.getElementById('checkbox').setAttribute('checked', 'checked');
+//     } else {
+//         setdarkmode.checked = true;
+//         localStorage.removeItem('theme' , 'dark');
+//     }
 // para ativar e desativar o mododark //
 // html = document.getelementsbytagname ('html') [0] //
-// ativar html.dataset.bstheme = 'dark' //
-// desativar html.dataset.bstheme = 'dark'//
+// html.dataset.bstheme = 'dark' //
+// html.dataset.bstheme = ''//
 
 // manutenções evoluta corretiva necessárias //
 // 1. 0 botar mododark //
 // 2.seleção de alguma opção de sexo //
-// 3.na tela a mensagem de erro e dados das pessoas estão aparecendo ao mesmo tempo//
+// 3.na tela a mensagem de erro e dados das pessoas estão aparecendo ao mesmo tempo
+
+//
 </script>
 </body>
 
