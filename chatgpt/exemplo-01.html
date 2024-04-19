@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Texto da Div</title>
+</head>
+<body>
+    <div id="minhaDiv">
+        <!-- Texto inicial da div -->
+        O texto inicial da div.
+    </div>
+    <!-- Botão para acionar a função de mudança de texto -->
+    <button onclick="mudarTexto()">Mudar Texto</button>
+    <script>
+        // Função para mudar o texto da div
+        function mudarTexto() {
+            // Acessa a div pelo ID
+            var div = document.getElementById('minhaDiv');
+            // Modifica o conteúdo da div utilizando innerHTML
+            div.innerHTML = '<strong>Novo</strong> texto <em>da</em> div.';
+        }
+    </script>
+</body>
+</html>
