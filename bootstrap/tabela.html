@@ -42,27 +42,42 @@
                 </tr>
             </tbody>
         </table>
+        <ul class="pagination">
+            <li class="page-item" onclick="preencherTabela(1)"><a class="page-link" href="#">Inicio</a></li>
+            <li class="page-item" onclick="preencherTabela(1)"><a class="page-link" href="#">1</a></li>
+            <li class="page-item" onclick="preencherTabela(2)"><a class="page-link" href="#">2</a></li>
+            <li class="page-item" onclick="preencherTabela(3)"><a class="page-link" href="#">3</a></li>
+            <li class="page-item" onclick="preencherTabela(4)"><a class="page-link" href="#">4</a></li>
+            <li class="page-item" onclick="preencherTabela(4)"><a class="page-link" href="#">Fim</a></li>
+
+        </ul>
 
     </div>
     <script>
+        let dados;
         async function buscarNomes() {
             let retorno = await fetch("https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking");
-            let dados = await retorno.json();
+            dados = await retorno.json();
             console.log(dados);
+            preencherTabela(1);
         }
         buscarNomes();
 
-        function preencherTabela(dados) {
+        function preencherTabela(pagina) {
             dados = dados[0].res;
             let tb = '';
-            for (info of dados) {
+            let inicioPagina = (pagina-1)*5;
+            let fimPagina = (pagina*5)-1;
+            for (i = inicioPagina; i <= fimPagina; i++) {
+                let info = dados[i];
                 tb += `<tr>
-                    <td> ${ info.ranking }</td>
-                    <td> ${ info.nome }</td>
-                    <td> ${ info.frequencia }</td>
+                    <td> ${info.ranking}</td>
+                    <td> ${info.nome}</td>
+                    <td> ${info.frequencia}</td>
 
                         </tr>`;
             }
+            
             document.getElementById('tbody').innerHTML = tb;
         }
     </script>
