@@ -42,33 +42,33 @@
                 </tr>
             </tbody>
         </table>
-        <ul class="pagination">
-            <li class="page-item" onclick="preencherTabela(1)"><a class="page-link" href="#">Inicio</a></li>
-            <li class="page-item" onclick="preencherTabela(1)"><a class="page-link" href="#">1</a></li>
-            <li class="page-item" onclick="preencherTabela(2)"><a class="page-link" href="#">2</a></li>
-            <li class="page-item" onclick="preencherTabela(3)"><a class="page-link" href="#">3</a></li>
-            <li class="page-item" onclick="preencherTabela(4)"><a class="page-link" href="#">4</a></li>
-            <li class="page-item" onclick="preencherTabela(4)"><a class="page-link" href="#">Fim</a></li>
+        <ul class="pagination" id="paginacao">
+           
 
         </ul>
 
     </div>
     <script>
         let dados;
+        let nLinhas = 3;
         async function buscarNomes() {
             let retorno = await fetch("https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking");
             dados = await retorno.json();
             console.log(dados);
+            dados = dados[0].res;
+            gerarPaginacao();
             preencherTabela(1);
+            
         }
         buscarNomes();
 
         function preencherTabela(pagina) {
-            dados = dados[0].res;
+            
             let tb = '';
-            let inicioPagina = (pagina-1)*5;
-            let fimPagina = (pagina*5)-1;
-            for (i = inicioPagina; i <= fimPagina; i++) {
+            let inicioPagina = (pagina-1)* nLinhas;
+            let fimPagina = (pagina * nLinhas) -1;
+                if(fimPagina >= dados.length) fimPagina = dados.length - 1;
+                for (i = inicioPagina; i <= fimPagina; i++) {
                 let info = dados[i];
                 tb += `<tr>
                     <td> ${info.ranking}</td>
@@ -79,6 +79,16 @@
             }
             
             document.getElementById('tbody').innerHTML = tb;
+        }
+        function gerarPaginacao() {
+            let qtPagina = Math.ceil(dados.length/nLinhas);
+            let paginacao = `<li class="page-item" onclick="preencherTabela(1)"><a class="page-link" href="#">Inicio</a></li>`;
+            for(i = 1; i <= qtPagina; i++) {
+            paginacao += `<li class="page-item" onclick="preencherTabela(${i})"><a class="page-link" href="#">${i}</a></li>`;
+        }
+            paginacao += `<li class="page-item" onclick="preencherTabela(${qtPagina})"><a class="page-link" href="#">Fim</a></li>`;
+
+            document.getElementById('paginacao').innerHTML = paginacao;
         }
     </script>
 
