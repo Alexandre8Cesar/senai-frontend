@@ -11,6 +11,7 @@ let tpStatus = {
 
 function gravar() {
     let indice = document.getElementById('indice').value;
+    let _lineNumber = document.getElementById('_lineNumber').value;
     let item = document.getElementById('item').value;
     let status = document.getElementById('status').value;
     if (item != '' && status != '') {
@@ -18,12 +19,18 @@ function gravar() {
         obj.item = item;
         obj.status = status;
         if (indice == "") {
-            lsItem.push(obj);
+            createRow(obj).then((o) => {
+                lsItem.push(o);
+                ataulizarTabela();
+            });
         } else {
-            lsItem[indice] = obj;
+            patchRow(_lineNumber, obj).then((o) => {
+                lsItem[indice] = o;
+                ataulizarTabela();
+            });
         }
         console.table(lsItem);
-        ataulizarTabela();
+        
         limparForm();
     } else {
         alert('Item e Status devem estar preenchidos')
@@ -47,6 +54,7 @@ function ataulizarTabela() {
 
 function limparForm() {
     document.getElementById('indice').value = "";
+    document.getElementById('_lineNumber').value = "";
     document.getElementById('item').value = "";
     document.getElementById('status').value = "";
 }
@@ -54,12 +62,14 @@ function limparForm() {
 function editar(indice) {
     obj = lsItem[indice];
     document.getElementById('indice').value = indice;
+    document.getElementById('_lineNumber').value = obj._lineNumber;
     document.getElementById('item').value = obj.item;
     document.getElementById('status').value = obj.status;
 }
 
 function apagar() {
     let indice = document.getElementById('indice').value;
+    let _lineNumber = document.getElementById('_lineNumber').value;
     if (indice != "") {
         lsItem.splice(indice, 1);
         ataulizarTabela();
@@ -69,10 +79,57 @@ function apagar() {
     }
 }
 
-lsItem = JSON.parse(localStorage.getItem("lsItem"));
-if(lsItem == null){
-    localStorage.setItem("lsItem","[]");
-    lsItem = [];
+async function getData() {
+    const response = await fetch("https://api.zerosheets.com/v1/yfr");
+    const data = await response.json();
+
+    // will return an array of objects with the _lineNumber
+    return data;
 }
 
-ataulizarTabela();
+async function createRow(payload) {
+    /* Payload should be an object with the columns you want to create, example:
+    const payload = {
+        column1: "foo",
+        column2: "bar"
+    };
+    */
+    const response = await fetch("https://api.zerosheets.com/v1/yfr", {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+  
+    return data;
+}
+
+async function patchRow(lineNumber, payload) {
+    /* Payload should be an object with the columns you want to update, example:
+
+    const payload = {
+        foo: "bar"
+    };
+    */
+    const url = "https://api.zerosheets.com/v1/yfr/" + lineNumber;
+    const response = await fetch(url, {
+      method: "PATCH",
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+    
+    // will return an object of the new row plus the _lineNumber
+    return data;
+}
+
+async function deleteRow(lineNumber) {
+    const url = "https://api.zerosheets.com/v1/yfr/" + lineNumber; // lineNumber comes from the get request
+    await fetch(url, {
+        method: "DELETE"
+    });
+    // No response data is returned
+}
+
+getData().then( (ls) => {
+    lsItem = ls;
+    ataulizarTabela();
+} );
