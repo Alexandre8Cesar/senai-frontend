@@ -43,7 +43,9 @@ function ataulizarTabela() {
     if (lsItem.length > 0) {
         let i = 0;
         for (const obj of lsItem) {
-            tbody += `<tr onclick='editar(${i})'><td class="${tpStatus[obj.status]}">${obj.item}</td></tr>`;
+            if(obj.item != ""){
+                tbody += `<tr onclick='editar(${i})'><td class="${tpStatus[obj.status]}">${obj.item}</td></tr>`;
+            }
             i++;
         }
     } else {
@@ -71,8 +73,10 @@ function apagar() {
     let indice = document.getElementById('indice').value;
     let _lineNumber = document.getElementById('_lineNumber').value;
     if (indice != "") {
-        lsItem.splice(indice, 1);
-        ataulizarTabela();
+        deleteRow(_lineNumber).then(() =>{
+            lsItem.splice(indice, 1);
+            ataulizarTabela();
+        });
         limparForm();
     } else {
         alert("Necessário selecionar algum item.")
