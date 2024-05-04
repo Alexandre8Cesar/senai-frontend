@@ -1,116 +1,115 @@
-const form = document.getElementById('form');
-const tbody = document.getElementById('tbody');
 
-const statusColors = {
-    "Pré-Operatório": 'table-danger',
-    "Recuperação": 'table-primary',
-    "Transferido": 'table-success'
+document.getElementById('bt-apagar').addEventListener('click', apagar);
+document.getElementById('bt-gravar').addEventListener('click', gravar);
+document.getElementById('bt-novo').addEventListener('click', limparForm);
+let lista = [];
+
+let tpStatus = {
+  "Pré-Operatório": "table-danger",
+  "Recuperação": 'table-primary',
+  "Transferido": 'table-success'
 };
 
-/*form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const pacienteNome = document.getElementById('nome').value;
-    const status = document.getElementById('status').value;
-    const inicio = document.getElementById('inicioPrevisto').value;
-    const inicioCirurgia = document.getElementById('inicioCirurgia').value;
-    const fimCirurgia = document.getElementById('finalCirurgia').value;
-    const saidaPrevista = document.getElementById('saidaPrevista').value;
-
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-    <td>${pacienteNome}</td>
-    <td class="${statusColors[status]}">${status}</td>
-    <td>${inicio}</td>
-    <td>${inicioCirurgia}</td>
-    <td>${fimCirurgia}</td>
-    <td>${saidaPrevista}</td>
-  `;
-    tbody.appendChild(newRow);
-
-    document.getElementById('nome').value = '';
-    document.getElementById('status').value = '';
-    document.getElementById('local').value = '';
-    document.getElementById('inicioPrevisto').value = '';
-    document.getElementById('inicioCirurgia').value = '';
-    document.getElementById('finalCirurgia').value = '';
-    document.getElementById('saidaPrevista').value = '';
-});*/
-  
 function gravar() {
   let indice = document.getElementById('indice').value;
   let _lineNumber = document.getElementById('_lineNumber').value;
   let nome = document.getElementById('nome').value;
+  let status = document.getElementById('status').value;
   let local = document.getElementById('local').value;
   let inicioPrevisto = document.getElementById('inicioPrevisto').value;
   let inicioCirurgia = document.getElementById('inicioCirurgia').value;
   let finalCirurgia = document.getElementById('finalCirurgia').value;
   let saidaPrevista = document.getElementById('saidaPrevista').value;
-  if (item != '' && status != '') {
-      let obj = {};
-      obj.item = item;
-      obj.status = status;
-      if (indice == "") {
-          createRow(obj).then((o) => {
-              lsItem.push(o);
-              ataulizarTabela();
-          });
-      } else {
-          patchRow(_lineNumber, obj).then((o) => {
-              lsItem[indice] = o;
-              ataulizarTabela();
-          });
-      }
-      console.table(lsItem);
-      
-      limparForm();
+  if (lista != '' && status != '') {
+    let obj = {};
+    obj.nome = nome;
+    obj.status = status;
+    obj.local = local;
+    obj.inicioPrevisto = inicioPrevisto;
+    obj.inicioCirurgia = inicioCirurgia;
+    obj.finalCirurgia = finalCirurgia;
+    obj.saidaPrevista = saidaPrevista;
+    if (indice == "") {
+      createRow(obj).then((o) => {
+        lista.push(o);
+        atualizarTabela();
+      });
+    } else {
+      patchRow(_lineNumber, obj).then((o) => {
+        lista[indice] = o;
+        atualizarTabela();
+      });
+    }
+    console.table(lista);
+
+    limparForm();
   } else {
-      alert('nome, local, status, inicioPrevisto, inicioCirurgia e saidaPrevista devem estar preenchidos')
+    alert('nome e status devem estar preenchidos')
   }
 }
 
-function ataulizarTabela() {
-  localStorage.setItem("lsItem",JSON.stringify(lsItem));
+function atualizarTabela() {
   let tbody = '';
-  if (lsItem.length > 0) {
-      let i = 0;
-      for (const obj of lsItem) {
-          if(obj.item != ""){
-              tbody += `<tr onclick='editar(${i})'><td class="${tpStatus[obj.status]}">${obj.item}</td></tr>`;
-          }
-          i++;
+  if (lista.length > 0) {
+    let i = 0;
+    for (const obj of lista) {
+      if (obj.nome != "") {
+        tbody += `<tr onclick='editar(${i})'>
+              <td>${obj.nome}</td>
+              <td>${obj.status}</td>
+              <td>${obj.inicioPrevisto}</td>
+              <td>${obj.inicioCirurgia}</td>
+              <td>${obj.finalCirurgia}</td>
+              <td>${obj.saidaPrevista}</td>
+              </tr>`;
       }
+      i++;
+    }
   } else {
-      tbody = `<tr><td>Lista vazia</td></tr>`;
+    tbody = `<tr><td>Lista vazia</td></tr>`;
   }
+
   document.getElementById('tbody').innerHTML = tbody;
 }
+
+
 
 function limparForm() {
   document.getElementById('indice').value = "";
   document.getElementById('_lineNumber').value = "";
-  document.getElementById('item').value = "";
+  document.getElementById('nome').value = "";
   document.getElementById('status').value = "";
+  document.getElementById('local').value = "";
+  document.getElementById('inicioPrevisto').value = "";
+  document.getElementById('inicioCirurgia').value = "";
+  document.getElementById('finalCirurgia').value = "";
+  document.getElementById('saidaPrevista').value = "";
 }
 
 function editar(indice) {
-  obj = lsItem[indice];
+  obj = lista[indice];
   document.getElementById('indice').value = indice;
   document.getElementById('_lineNumber').value = obj._lineNumber;
-  document.getElementById('item').value = obj.item;
+  document.getElementById('nome').value = obj.nome;
   document.getElementById('status').value = obj.status;
+  document.getElementById('local').value = obj.local;
+  document.getElementById('inicioPrevisto').value = obj.inicioPrevisto;
+  document.getElementById('inicioCirurgia').value = obj.inicioCirurgia;
+  document.getElementById('finalCirurgia').value = obj.finalCirurgia;
+  document.getElementById('saidaPrevista').value = obj.saidaPrevista;
 }
 
 function apagar() {
   let indice = document.getElementById('indice').value;
   let _lineNumber = document.getElementById('_lineNumber').value;
   if (indice != "") {
-      deleteRow(_lineNumber).then(() =>{
-          lsItem.splice(indice, 1);
-          ataulizarTabela();
-      });
-      limparForm();
+    deleteRow(_lineNumber).then(() => {
+      lista.splice(indice, 1);
+      atualizarTabela();
+    });
+    limparForm();
   } else {
-      alert("Necessário selecionar algum item.")
+    alert("Necessário selecionar algum item.")
   }
 }
 
@@ -151,7 +150,7 @@ async function patchRow(lineNumber, payload) {
     body: JSON.stringify(payload)
   });
   const data = await response.json();
-  
+
   // will return an object of the new row plus the _lineNumber
   return data;
 }
@@ -159,12 +158,12 @@ async function patchRow(lineNumber, payload) {
 async function deleteRow(lineNumber) {
   const url = "https://api.zerosheets.com/v1/xo4" + lineNumber; // lineNumber comes from the get request
   await fetch(url, {
-      method: "DELETE"
+    method: "DELETE"
   });
   // No response data is returned
 }
 
-getData().then( (ls) => {
-  lsItem = ls;
-  ataulizarTabela();
-} );
+getData().then((ls) => {
+  lista = ls;
+  atualizarTabela();
+});
