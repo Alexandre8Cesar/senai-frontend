@@ -20,7 +20,7 @@ function gravar() {
   let inicioCirurgia = document.getElementById('inicioCirurgia').value;
   let finalCirurgia = document.getElementById('finalCirurgia').value;
   let saidaPrevista = document.getElementById('saidaPrevista').value;
-  if (lista != '' && status != '') {
+  if (nome != '' && status != '') {
     let obj = {};
     obj.nome = nome;
     obj.status = status;
@@ -53,10 +53,10 @@ function atualizarTabela() {
   if (lista.length > 0) {
     let i = 0;
     for (const obj of lista) {
-      if (obj.nome != "") {
+      if (obj.nome != "") { // 
         tbody += `<tr onclick='editar(${i})'>
               <td>${obj.nome}</td>
-              <td>${obj.status}</td>
+              <td class="${tpStatus[obj.status]}" >${obj.status} (${obj.local})</td>
               <td>${obj.inicioPrevisto}</td>
               <td>${obj.inicioCirurgia}</td>
               <td>${obj.finalCirurgia}</td>
@@ -144,7 +144,7 @@ async function patchRow(lineNumber, payload) {
       foo: "bar"
   };
   */
-  const url = "https://api.zerosheets.com/v1/xo4" + lineNumber;
+  const url = "https://api.zerosheets.com/v1/xo4/" + lineNumber;
   const response = await fetch(url, {
     method: "PATCH",
     body: JSON.stringify(payload)
@@ -156,7 +156,7 @@ async function patchRow(lineNumber, payload) {
 }
 
 async function deleteRow(lineNumber) {
-  const url = "https://api.zerosheets.com/v1/xo4" + lineNumber; // lineNumber comes from the get request
+  const url = "https://api.zerosheets.com/v1/xo4/" + lineNumber; // lineNumber comes from the get request
   await fetch(url, {
     method: "DELETE"
   });
