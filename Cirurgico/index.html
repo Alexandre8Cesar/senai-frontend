@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +10,23 @@
 </head>
 
 <body>
-    
-    
- <form action="" onsubmit="return validarlogin()"><h1>SEJA BEM-VINDO</h1><H2>Ao Centro Cirurgico</H2>
- <label for="login">Login:</label><br>
- <input type="text" id="login" required ><br>
- <label for="password">Password:</label><br>
- <input type="password" id="password" required ><br>
- <button>Acessar</button><span></span>
- </form>
- <script src="scripts/login.js" ></script>   
+
+
+    <form action="" onsubmit="return validarlogin()">
+        <h1>SEJA BEM-VINDO</h1>
+        <H2>Ao Centro Cirurgico</H2>
+        <label for="login">Login:</label><br>
+        <input type="text" id="login" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" required><br>
+        <button>Acessar</button><span></span>
+        <a href="pacientes.html"> Acompanhante</a> <br>
+    </form>
+    <script src="scripts/login.js"></script>
+    <script>
+        document.getElementById('bt-apagar').addEventListener('click', apagar);
+        document.getElementById('bt-gravar').addEventListener('click', gravar);
+        document.getElementById('bt-novo').addEventListener('click', limparForm);</script>
 </body>
 
 </html>
