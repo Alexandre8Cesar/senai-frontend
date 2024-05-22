@@ -34,4 +34,6 @@ continuar.addEventListener('click', ()=>{
 let compras = document.querySelector('.compras');
 compras.addEventListener('click', ()=>{
     telaCarrinho.classList.toggle('ocultar-tela-carrinho');
+    menutoggle.click(); //fechar o menu suspenso nas versões mobile
 })
+

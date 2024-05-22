@@ -490,3 +490,43 @@ footer {
 .ocultar-tela-carrinho{
     display: none;
 }
+
+.tela-carrinho{
+    color: #ffc506;
+}
+
+.tela-carrinho h2{
+    font-size: 3rem;
+}
+
+.tela-carrinho thead th{
+background-color: #ffc506;
+color: black;
+height: 2rem;
+font-size: 1.8rem;
+}
+
+.tela-carrinho table{
+    width: 80%;
+}
+
+.tela-carrinho td{
+    font-size: 1.4rem;
+    border-bottom: 1px solid #ffc506;
+}
+
+.tela-carrinho button{
+    background-color: #ffc506;
+    color: black;
+    border: 1px solid #1f1e1f;
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.tela-carrinho .bi{
+    cursor: pointer;
+}
+
+
