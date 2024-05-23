@@ -56,3 +56,25 @@ function atualizarTabela() {
         }
     }
 }
+
+let tbody = document.querySelector('tbody');
+function atualizarTabela(){
+    tbody.innerHTML = '';
+    let total = 0;
+    for (const p of produtos) {
+        if (p.quantidade > 0){
+            tbody.innerHTML += `
+            </tr>
+                <td>${p.nome}</td>
+                <td>${p.quantidade}x${p.fatias8}=${p.quantidade*p.fatias8}(8 fatias)</td>
+                <td>
+                    <i class="bi bi-plus-square-fill"></i>
+                    <i class="bi bi-dash-square-fill"></i>
+                </td>
+                </tr>`;
+                total += p.quantidade*p.fatias8;
+        }
+    }
+    document.querySelector('#total-pedido').innerHTML = `Valor total do pedido = R$${total}`;
+
+}
