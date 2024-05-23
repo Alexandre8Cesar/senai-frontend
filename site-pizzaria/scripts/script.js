@@ -9,6 +9,7 @@ menutoggle.addEventListener('click', () => {
 })
 
 let itensCardapio = document.querySelector(".itens-cardapio");
+let id = 0;
 for (const p of produtos) {
     itensCardapio.innerHTML += `
         <div class="">
@@ -18,22 +19,40 @@ for (const p of produtos) {
                     <h4>6 fatias<span>R$${p.fatias6}</span></h4>
                     <h4>8 fatias<span>R$${p.fatias8}</span></h4>
                     <h4>12 fatias<span>R$${p.fatias12}</span></h4>
-                    <button class="pedir">pedir agora</button>
+                    <button id="id${id}" class="pedir">pedir agora</button>
 
                 </div>
                 </div>
                 `;
+    id++;
 }
 
 let telaCarrinho = document.querySelector('.tela-carrinho');
-let continuar = document.querySelector ('.continuar');
-continuar.addEventListener('click', ()=>{
+let continuar = document.querySelector('.continuar');
+continuar.addEventListener('click', () => {
     telaCarrinho.classList.toggle('ocultar-tela-carrinho');
 })
 
 let compras = document.querySelector('.compras');
-compras.addEventListener('click', ()=>{
+compras.addEventListener('click', () => {
     telaCarrinho.classList.toggle('ocultar-tela-carrinho');
     menutoggle.click(); //fechar o menu suspenso nas versões mobile
 })
 
+let lsPedido = document.querySelectorAll('.pedir');
+for (const bt of lsPedido) {
+    bt.addEventListener('click', () => {
+        let id = bt.id.replace('id', '');
+        produtos[id].quantidade = 1;
+        atualizarTabela();
+    });
+}
+
+function atualizarTabela() {
+    
+    for (const p of produtos) {
+        if (p.quantidade > 0) {alert()
+            console.log(p)
+        }
+    }
+}
