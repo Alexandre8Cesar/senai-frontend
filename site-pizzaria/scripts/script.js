@@ -89,3 +89,20 @@ function atualizarPlusDash(tipo){
         });
     }
 }
+
+let enviar = document.querySelector('.enviar');
+enviar.addEventListener('click', () => {
+    let msg = 'Gostaria de fazer o seguinte pedido\n';
+    let total = 0;
+    for (const p of produtos) {
+        if (p.quantidade > 0) {
+            msg += `${p.nome} ${p.quantidade}x${p.fatias8}=${p.quantidade * p.fatias8}\n`;
+            total += p.quantidade * p.fatias8;
+        }
+    }
+    msg += `Total = ${total}`;
+    msg = encodeURI(msg);
+    let fone = '5561';
+    let link = `https://api.whatsapp.com/send?phone=${fone}&text=${msg}`;
+    window.open(link);
+});
