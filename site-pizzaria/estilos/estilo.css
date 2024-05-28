@@ -549,3 +549,8 @@ font-size: 1.8rem;
     margin-top: 10px;
 }
 
+.itens-cardapio .info button.selecionado{
+    color: #ffffff;
+    background-color: #333333;
+}
+
