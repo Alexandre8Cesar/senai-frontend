@@ -1,16 +1,151 @@
-.itens-produtos img{
-    width: 160px;
-    height: 160px;
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+html {
+    font-size: 50%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+        
+}
+
+.inicio{
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content:center;
+    background-color: #4cad9d;
+    position: fixed;
+    align-items: center;
+
+}
+
+
+.inicio .rodape-topo {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    justify-content: space-between;
     
 }
 
-.itens-produtos div{
-    background-color: #ffffff;
-    box-shadow: 0px 0px 4px 1px;
+.inicio .rodape-topo li a {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    padding-top: 3rem;
+    padding-bottom: 3.1rem;
+    transition: all 200ms ease-in;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: 500;
 }
 
-.itens-produtos{
+.inicio .rodape-topo li a:hover {
+    background-color: #ffffff;
+    color: #3a9e80;
+    border-bottom: 4px solid #37776e;
+}   
+
+/* Primeira section */ 
+
+/*.first-section {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8)), url(../imagens/fundopizza.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 50px;    
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.first-section h1{
+    color: #ffc506;
+    font-size: 6rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+ 
+.first-section h2{
+    color: rgb(177,177,177);
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.first-section .conteudo-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn button{
+    width: 230px;
+    height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ffc506;
+    border-radius: 10px;
+    color: black;
+    font-weight: 700;
+    margin-top: 5rem;
+    transition: all 400ms ease-in;
+}
+
+.btn button:hover{
+    background-color: transparent;
+    border: 1px solid #ffc506;
+    color: #ffc506;
+}
+
+.btn {
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Sobre Nós */
+
+
+/*.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* secction cardapio */
+.produtos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.produtos h2{
+    font-size: 5rem;
+    color: #e6e6e6;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.itens-produtos {
     width: 80%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
@@ -19,4 +154,343 @@
     gap: 30px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.itens-produtos img{
+    width: 60%;
+    height: 300px;
+}
+
+.itens-produtos .item {
+    text-align: center;
+}
+
+.itens-produtos div{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 1px;
+}
+
+.itens-produtos .info {
+    background-color: rgb(167, 224, 212);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    flex-direction: column;
+}
+
+.itens-produtos .info h3{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.itens-produtos .info h4{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    /* display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 150px 150px;
+    margin-left: 6rem; */
+    
+}
+
+.itens-produtos .info h4 span{
+    color: #5e5252;
+    margin-left: 1.5rem;
+    text-decoration: underline;
+    font-weight: 800;    
+}
+
+.itens-produtos .info button{
+    width: 200px;
+    height: 30px;
+    background-color: #ffc506;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    transition: all 200ms ease-in;
+}
+
+.itens-produtos .info button:hover{
+    background-color: #5e5252;
+    color: #ffffff;
+}
+
+/* section contatos */
+
+.contatos{
+    width: 100%;
+    background-color: #4cad9d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 1.8rem;
+    padding-bottom: 4rem;
+}
+
+.contatos h3{
+    font-size: 6rem;
+    margin-bottom: 3rem;
+    font-family: 'Indie Flower', cursive;
+}
+
+.contatos .contatos-secao{
+    display: flex;
+    width: 650px;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.contatos i{
+    margin-right: 1rem;
+}
+
+.contatos .contatos-secao div{
+    cursor: pointer;
+}
+
+.contatos .contatos-secao div:hover{
+    color: #ffc506;
+}
+
+footer {
+    height: 35px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 1200px){
+    .itens-cardapio {
+        width: 90%;        
+    }
+
+
+    .main{
+        display: block;
+    }
+}
+
+@media(max-width: 980px){
+    html{
+        font-size: 50%;
+    }
+}
+
+/* menu-toggle menu de hamburgue */
+/*@media(max-width: 870px){
+    .content .list-menu{
+        display: none;
+    }
+
+    .one, .two, .three{
+        width: 100%;
+        height: 4px;
+        background-color: white;
+        margin: 6px auto;
+    }
+
+    .menu-toggle{
+        width: 40px;
+        height: 30px;
+    }
+
+    .content{
+        justify-content: space-between;
+        padding: 0px 40px;
+    }
+
+    .content.on {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #1f1e1f;
+        z-index: 10;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content.on .logo{
+        display: none;
+    }
+
+    .content.on .menu-toggle{
+        position: absolute;
+        right: 40px;
+        top: 20px;
+    }
+
+    .content.on .list-menu {
+        display: block;
+    }
+
+    .content.on .list-menu li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content.on .list-menu li a{
+        font-size: 4rem;
+        display: block;
+    }
+
+    .content.on .menu-toggle .one{
+        transform: rotate(45deg) translate(8px, -7px);
+    }
+ 
+    .content.on .menu-toggle .two{
+        opacity: 0;
+    }
+
+    .content.on .menu-toggle .three{
+        transform: rotate(-45deg) translate(21px, -7px);
+    }
+        
+    .contatos-secao{
+        display: block;
+        text-align: center;
+        font-size: 2rem;
+    }
+    
+}
+
+@media(max-width: 700px){
+    .conteudo-principal h1{
+        width: 350px;
+        text-align: center;
+    }
+}
+
+@media(max-width: 645px){
+    .sobre-nos img{
+        display: none;
+    }
+
+    .sobre-nos p{
+        width: 400px;
+    }
+
+    .btn{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contatos .contatos-secao{
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;        
+    }
+
+    .contatos .contatos-secao div{
+        margin-bottom: 10px;
+    }
+    
+}
+
+@media(max-width: 500px){
+    .conteudo-principal h1{
+        font-size: 3rem;
+    }
+    .conteudo-principal h2{
+        font-size: 2rem;
+    }
+
+    .contentsobre p {
+        width: 90%;
+    }
+
+    .btn{
+        width:100%
+    }
+
+    .first-section .conteudo-principal{
+        width:100%
+    }
+}
+
+.tela-carrinho{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background-color: #1f1e1f;
+    display: flex;
+    justify-content: center;
+    color: #ffc506;
+}
+
+.ocultar-tela-carrinho{
+    display: none;
+}
+
+
+.tela-carrinho h2{
+    font-size: 3rem;
+}
+
+.tela-carrinho thead th{
+background-color: #ffc506;
+color: black;
+height: 2rem;
+font-size: 1.8rem;
+}
+
+.tela-carrinho table{
+    width: 100%;
+}
+
+.tela-carrinho td{
+    font-size: 1.8rem;
+    border-bottom: 1px solid #ffc506;
+}
+
+.tela-carrinho p{
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.tela-carrinho button{
+    background-color: #ffc506;
+    color: black;
+    border: 1px solid #1f1e1f;
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.tela-carrinho .bi{
+    cursor: pointer;
+}
+
+.content-carrinho{
+    width: 90%;
+    margin-top: 10px;
+}
+
+.itens-cardapio .info button.selecionado{
+    color: #ffffff;
+    background-color: #333333;
 }
