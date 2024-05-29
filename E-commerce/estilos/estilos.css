@@ -49,81 +49,6 @@ html {
     border-bottom: 4px solid #37776e;
 }   
 
-/* Primeira section */ 
-
-/*.first-section {
-    height: 100vh;
-    width: 100vw;
-    background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8)), url(../imagens/fundopizza.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-y: 50px;    
-    display: flex;   
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.first-section h1{
-    color: #ffc506;
-    font-size: 6rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
-
-.indie-flower-regular {
-    font-family: "Indie Flower", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
- 
-.first-section h2{
-    color: rgb(177,177,177);
-    font-size: 3rem;
-    text-transform: uppercase;
-    margin-bottom: 3rem;
-}
-
-.first-section .conteudo-principal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.btn button{
-    width: 230px;
-    height: 60px;
-    cursor: pointer;
-    text-transform: uppercase;
-    background-color: #ffc506;
-    border-radius: 10px;
-    color: black;
-    font-weight: 700;
-    margin-top: 5rem;
-    transition: all 400ms ease-in;
-}
-
-.btn button:hover{
-    background-color: transparent;
-    border: 1px solid #ffc506;
-    color: #ffc506;
-}
-
-.btn {
-    width: 480px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Sobre Nós */
-
-
-/*.main {
-    display: flex;
-    justify-content: space-between;
-}
 
 
 /* secction cardapio */
@@ -188,32 +113,29 @@ html {
 }
 
 .itens-produtos .info h4{
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     margin-bottom: 0.6rem;
-    /* display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: 150px 150px;
-    margin-left: 6rem; */
     
 }
 
 .itens-produtos .info h4 span{
-    color: #5e5252;
+    color: #2e2e2e;
     margin-left: 1.5rem;
     text-decoration: underline;
-    font-weight: 800;    
+    font-weight: 800px;    
 }
 
 .itens-produtos .info button{
     width: 200px;
     height: 30px;
-    background-color: #ffc506;
+    background-color: #37776e;
+    color: #e6e6e6;
     cursor: pointer;
+    font-size: 1.8rem;
     border-radius: 5px;
     text-transform: uppercase;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     transition: all 200ms ease-in;
 }
 
@@ -272,7 +194,7 @@ footer {
 }
 
 @media(max-width: 1200px){
-    .itens-cardapio {
+    .itens-produtos {
         width: 90%;        
     }
 
@@ -288,9 +210,9 @@ footer {
     }
 }
 
-/* menu-toggle menu de hamburgue */
-/*@media(max-width: 870px){
-    .content .list-menu{
+/* menu-toggle menu tres traços */
+@media(max-width: 870px){
+    .rodape-topo .list-menu{
         display: none;
     }
 
@@ -306,12 +228,12 @@ footer {
         height: 30px;
     }
 
-    .content{
+    .rodape-topo{
         justify-content: space-between;
         padding: 0px 40px;
     }
 
-    .content.on {
+    .rodape-topo.on {
         position: absolute;
         top: 0;
         left: 0;
@@ -325,40 +247,40 @@ footer {
         align-items: center;
     }
 
-    .content.on .logo{
+    .rodape-topo.on .logo{
         display: none;
     }
 
-    .content.on .menu-toggle{
+    .rodape-topo.on .menu-toggle{
         position: absolute;
         right: 40px;
         top: 20px;
     }
 
-    .content.on .list-menu {
+    .rodape-topo.on .list-menu {
         display: block;
     }
 
-    .content.on .list-menu li{
+    .rodape-topo.on .list-menu li{
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .content.on .list-menu li a{
+    .rodape-topo.on .list-menu li a{
         font-size: 4rem;
         display: block;
     }
 
-    .content.on .menu-toggle .one{
+    .rodape-topo.on .menu-toggle .one{
         transform: rotate(45deg) translate(8px, -7px);
     }
  
-    .content.on .menu-toggle .two{
+    .rodape-topo.on .menu-toggle .two{
         opacity: 0;
     }
 
-    .content.on .menu-toggle .three{
+    .rodape-topo.on .menu-toggle .three{
         transform: rotate(-45deg) translate(21px, -7px);
     }
         
@@ -371,20 +293,9 @@ footer {
 }
 
 @media(max-width: 700px){
-    .conteudo-principal h1{
-        width: 350px;
-        text-align: center;
-    }
-}
+    
 
-@media(max-width: 645px){
-    .sobre-nos img{
-        display: none;
-    }
 
-    .sobre-nos p{
-        width: 400px;
-    }
 
     .btn{
         flex-direction: column;
@@ -407,24 +318,10 @@ footer {
 }
 
 @media(max-width: 500px){
-    .conteudo-principal h1{
-        font-size: 3rem;
-    }
-    .conteudo-principal h2{
-        font-size: 2rem;
-    }
-
-    .contentsobre p {
-        width: 90%;
-    }
-
     .btn{
         width:100%
     }
 
-    .first-section .conteudo-principal{
-        width:100%
-    }
 }
 
 .tela-carrinho{
@@ -490,7 +387,7 @@ font-size: 1.8rem;
     margin-top: 10px;
 }
 
-.itens-cardapio .info button.selecionado{
+.itens-produtos .info button.selecionado{
     color: #ffffff;
     background-color: #333333;
 }
