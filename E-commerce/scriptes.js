@@ -1,4 +1,4 @@
-let menuContent = document.querySelector('.content');
+let menuContent = document.querySelector('.rodape-topo');
 let menutoggle = menuContent.querySelector('.menu-toggle');
 let show = true;
 
@@ -16,9 +16,7 @@ for (const p of produtos) {
             <img src="${p.img}" alt="${p.dsImg}">
                 <div class="info">
                     <h3></h3>
-                    <h4>6 fatias<span>R$${p.fatias6}</span></h4>
-                    <h4>8 fatias<span>R$${p.fatias8}</span></h4>
-                    <h4>12 fatias<span>R$${p.fatias12}</span></h4>
+                    <h4><span>R$${p.fatias8}</span></h4>
                     <button id="id${id}" class="pedir">pedir agora</button>
 
                 </div>
