@@ -1,4 +1,4 @@
-let menuContent = document.querySelector('.rodape-topo');
+let menuContent = document.querySelector('.inicio');
 let menutoggle = menuContent.querySelector('.menu-toggle');
 let show = true;
 
@@ -16,7 +16,7 @@ for (const p of produtos) {
             <img src="${p.img}" alt="${p.dsImg}">
                 <div class="info">
                     <h3></h3>
-                    <h4><span>R$${p.fatias8}</span></h4>
+                    <h4><span>R$${p.valor}</span></h4>
                     <button id="id${id}" class="pedir">pedir agora</button>
 
                 </div>
@@ -64,13 +64,13 @@ function atualizarTabela(){
             tbody.innerHTML += `
             </tr>
                 <td>${p.nome}</td>
-                <td>${p.quantidade}x${p.fatias8}=${p.quantidade*p.fatias8}(8 fatias)</td>
+                <td>${p.quantidade}x${p.valor}=${p.quantidade*p.valor}</td>
                 <td>
                     <i class="bi bi-plus-square-fill" id="plus${id}"></i>
                     <i class="bi bi-dash-square-fill"id="dash${id}"></i>
                 </td>
                 </tr>`;
-                total += p.quantidade*p.fatias8;
+                total += p.quantidade*p.valor;
         }
         id++;
     }
@@ -105,8 +105,8 @@ enviar.addEventListener('click', () => {
     let total = 0;
     for (const p of produtos) {
         if (p.quantidade > 0) {
-            msg += `${p.nome} ${p.quantidade}x${p.fatias8}=${p.quantidade * p.fatias8}\n`;
-            total += p.quantidade * p.fatias8;
+            msg += `${p.nome} ${p.quantidade}x${p.valor}=${p.quantidade * p.valor}\n`;
+            total += p.quantidade * p.valor;
         }
     }
     msg += `Total = ${total}`;

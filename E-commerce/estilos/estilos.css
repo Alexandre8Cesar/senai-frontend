@@ -212,7 +212,7 @@ footer {
 
 /* menu-toggle menu tres traços */
 @media(max-width: 870px){
-    .rodape-topo .list-menu{
+    .inicio .rodape-topo{
         display: none;
     }
 
@@ -228,18 +228,18 @@ footer {
         height: 30px;
     }
 
-    .rodape-topo{
-        justify-content: space-between;
+    .inicio{
+        justify-content: end;
         padding: 0px 40px;
     }
 
-    .rodape-topo.on {
+    .inicio.on {
         position: absolute;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: #1f1e1f;
+        background-color: #37776e;
         z-index: 10;
 
         display: flex;
@@ -247,40 +247,40 @@ footer {
         align-items: center;
     }
 
-    .rodape-topo.on .logo{
+    .inicio.on .logo{
         display: none;
     }
 
-    .rodape-topo.on .menu-toggle{
+    .inicio.on .menu-toggle{
         position: absolute;
         right: 40px;
         top: 20px;
     }
 
-    .rodape-topo.on .list-menu {
+    .inicio.on .rodape-topo {
         display: block;
     }
 
-    .rodape-topo.on .list-menu li{
+    .inicio.on .rodape-topo li{
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .rodape-topo.on .list-menu li a{
+    .inicio.on .rodape-topo li a{
         font-size: 4rem;
         display: block;
     }
 
-    .rodape-topo.on .menu-toggle .one{
+    .inicio.on .menu-toggle .one{
         transform: rotate(45deg) translate(8px, -7px);
     }
  
-    .rodape-topo.on .menu-toggle .two{
+    .inicio.on .menu-toggle .two{
         opacity: 0;
     }
 
-    .rodape-topo.on .menu-toggle .three{
+    .inicio.on .menu-toggle .three{
         transform: rotate(-45deg) translate(21px, -7px);
     }
         
