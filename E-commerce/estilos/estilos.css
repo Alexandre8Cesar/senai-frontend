@@ -82,8 +82,9 @@ html {
 }
 
 .itens-produtos img{
-    width: 60%;
+    /*width: 60%;*/
     height: 300px;
+    vertical-align: super;
 }
 
 .itens-produtos .item {
@@ -330,10 +331,11 @@ footer {
     position: fixed;
     top: 0%;
     left: 0%;
-    background-color: #1f1e1f;
+    background-color: white;
     display: flex;
     justify-content: center;
-    color: #ffc506;
+    color: #3a9e80;
+    
 }
 
 .ocultar-tela-carrinho{
@@ -343,13 +345,15 @@ footer {
 
 .tela-carrinho h2{
     font-size: 3rem;
+    text-shadow: 1px 2px 1px black;
 }
 
 .tela-carrinho thead th{
-background-color: #ffc506;
-color: black;
+background-color: #3a9e80;
+color: white;
 height: 2rem;
 font-size: 1.8rem;
+text-shadow: 2px 2px 1px black;
 }
 
 .tela-carrinho table{
@@ -358,18 +362,21 @@ font-size: 1.8rem;
 
 .tela-carrinho td{
     font-size: 1.8rem;
-    border-bottom: 1px solid #ffc506;
+    border-bottom: 2px solid #3a9e80;
+    border: 2px solid #37776e
+    
 }
 
 .tela-carrinho p{
     margin-top: 10px;
     font-size: 1.8rem;
+    border: 2px solid #37776e;
 }
 
 .tela-carrinho button{
-    background-color: #ffc506;
-    color: black;
-    border: 1px solid #1f1e1f;
+    background-color: #3a9e80;
+    color: white;
+    border: 2px solid #37776e;
     padding: 3px;
     border-radius: 5px;
     margin-top: 10px;

@@ -12,11 +12,11 @@ let itensProdutos = document.querySelector(".itens-produtos");
 let id = 0;
 for (const p of produtos) {
     itensProdutos.innerHTML += `
-        <div class="">
+        <div class="item">
             <img src="${p.img}" alt="${p.dsImg}">
                 <div class="info">
-                    <h3></h3>
-                    <h4><span>R$${p.valor}</span></h4>
+                    <h3>${p.nome}</h3>
+                    <h4><span>R$${p.valor.toFixed(2)}</span></h4>
                     <button id="id${id}" class="pedir">pedir agora</button>
 
                 </div>
